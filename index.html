@@ -56,7 +56,7 @@
   </footer>
 
   <script>
-    const url = "https://script.google.com/macros/s/AKfycbxAFRnPhnq_Q_FzyY7F_wBJJ6g-TuR6Un5eGQpRN7jVom3DmXI9E41jQyWS-ygxSLMo/exec"; // ganti dengan URL Web App
+    const url = "https://script.google.com/macros/s/AKfycbxAFRnPhnq_Q_FzyY7F_wBJJ6g-TuR6Un5eGQpRN7jVom3DmXI9E41jQyWS-ygxSLMo/exec"; // ganti dengan URL Web App Anda
 
     fetch(url)
       .then(res => res.json())
@@ -72,10 +72,28 @@
         // Tugas
         const tugasTable = document.getElementById("tugas-table");
         data.tugas.forEach(row => {
+          let deadline = row[1];
+          if (deadline) {
+            try {
+              deadline = new Date(deadline).toLocaleDateString("id-ID", {
+                year: "numeric",
+                month: "long",
+                day: "numeric"
+              });
+            } catch (e) {}
+          }
+
+          // Status dengan warna otomatis
+          let status = row[2] ? row[2].toLowerCase() : "";
+          let statusClass = "text-gray-700";
+          if (status.includes("selesai")) statusClass = "text-green-600 font-semibold";
+          else if (status.includes("proses")) statusClass = "text-yellow-600 font-semibold";
+          else if (status.includes("belum")) statusClass = "text-red-600 font-semibold";
+
           let tr = document.createElement("tr");
           tr.innerHTML = `<td class="p-2">${row[0]}</td>
-                          <td class="p-2">${row[1]}</td>
-                          <td class="p-2">${row[2]}</td>`;
+                          <td class="p-2">${deadline}</td>
+                          <td class="p-2 ${statusClass}">${row[2]}</td>`;
           tugasTable.appendChild(tr);
         });
 
