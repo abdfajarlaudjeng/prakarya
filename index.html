@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Prakarya & Informatika</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <header class="bg-indigo-600 text-white p-4 shadow-md">
+    <h1 class="text-2xl font-bold">Dashboard Prakarya & Informatika</h1>
+    <p class="text-sm">Kelas 8 SMP</p>
+  </header>
+
+  <main class="p-6">
+    <!-- Materi -->
+    <section id="materi" class="mb-8">
+      <h2 class="text-xl font-bold mb-3">📘 Materi Pelajaran</h2>
+      <ul id="materi-list" class="list-disc list-inside bg-white p-4 rounded shadow"></ul>
+    </section>
+
+    <!-- Tugas -->
+    <section id="tugas" class="mb-8">
+      <h2 class="text-xl font-bold mb-3">📝 Tugas</h2>
+      <table class="w-full bg-white rounded shadow overflow-hidden">
+        <thead class="bg-indigo-500 text-white">
+          <tr>
+            <th class="p-2">Judul</th>
+            <th class="p-2">Deadline</th>
+            <th class="p-2">Status</th>
+          </tr>
+        </thead>
+        <tbody id="tugas-table"></tbody>
+      </table>
+    </section>
+
+    <!-- Nilai -->
+    <section id="nilai" class="mb-8">
+      <h2 class="text-xl font-bold mb-3">📊 Nilai</h2>
+      <table class="w-full bg-white rounded shadow overflow-hidden">
+        <thead class="bg-indigo-500 text-white">
+          <tr>
+            <th class="p-2">Nama</th>
+            <th class="p-2">Tugas</th>
+            <th class="p-2">Kuis</th>
+            <th class="p-2">Rata-rata</th>
+          </tr>
+        </thead>
+        <tbody id="nilai-table"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="bg-indigo-600 text-white text-center p-4">
+    <p>© 2025 Dashboard Prakarya & Informatika</p>
+  </footer>
+
+  <script>
+    const url = "https://script.google.com/macros/s/AKfycbxAFRnPhnq_Q_FzyY7F_wBJJ6g-TuR6Un5eGQpRN7jVom3DmXI9E41jQyWS-ygxSLMo/exec"; // ganti dengan URL Web App
+
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        // Materi
+        const materiList = document.getElementById("materi-list");
+        data.materi.forEach(row => {
+          let li = document.createElement("li");
+          li.textContent = row[0];
+          materiList.appendChild(li);
+        });
+
+        // Tugas
+        const tugasTable = document.getElementById("tugas-table");
+        data.tugas.forEach(row => {
+          let tr = document.createElement("tr");
+          tr.innerHTML = `<td class="p-2">${row[0]}</td>
+                          <td class="p-2">${row[1]}</td>
+                          <td class="p-2">${row[2]}</td>`;
+          tugasTable.appendChild(tr);
+        });
+
+        // Nilai
+        const nilaiTable = document.getElementById("nilai-table");
+        data.nilai.forEach(row => {
+          let tr = document.createElement("tr");
+          tr.innerHTML = `<td class="p-2">${row[0]}</td>
+                          <td class="p-2">${row[1]}</td>
+                          <td class="p-2">${row[2]}</td>
+                          <td class="p-2">${row[3]}</td>`;
+          nilaiTable.appendChild(tr);
+        });
+      })
+      .catch(err => console.error(err));
+  </script>
+</body>
+</html>
