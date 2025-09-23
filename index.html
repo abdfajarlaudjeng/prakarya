@@ -6,58 +6,74 @@
   <title>Dashboard Prakarya & Informatika</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-100 font-sans min-h-screen flex flex-col">
+  <!-- Header -->
   <header class="bg-indigo-600 text-white p-4 shadow-md">
-    <h1 class="text-2xl font-bold">Dashboard Prakarya & Informatika</h1>
-    <p class="text-sm">Kelas 8 SMP</p>
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-2xl font-bold">Dashboard Prakarya & Informatika</h1>
+      <p class="text-sm">Kelas 8 SMP</p>
+    </div>
   </header>
 
-  <main class="p-6">
-    <!-- Materi -->
-    <section id="materi" class="mb-8">
-      <h2 class="text-xl font-bold mb-3">📘 Materi Pelajaran</h2>
-      <ul id="materi-list" class="list-disc list-inside bg-white p-4 rounded shadow"></ul>
-    </section>
+  <!-- Main -->
+  <main class="flex-1 p-4 sm:p-6">
+    <div class="max-w-6xl mx-auto space-y-10">
 
-    <!-- Tugas -->
-    <section id="tugas" class="mb-8">
-      <h2 class="text-xl font-bold mb-3">📝 Tugas</h2>
-      <table class="w-full bg-white rounded shadow overflow-hidden">
-        <thead class="bg-indigo-500 text-white">
-          <tr>
-            <th class="p-2">Judul</th>
-            <th class="p-2">Deadline</th>
-            <th class="p-2">Status</th>
-            <th class="p-2">Link Pembelajaran</th>
-          </tr>
-        </thead>
-        <tbody id="tugas-table"></tbody>
-      </table>
-    </section>
+      <!-- Materi -->
+      <section id="materi">
+        <h2 class="text-xl font-bold mb-3">📘 Materi Pelajaran</h2>
+        <ul id="materi-list" class="list-disc list-inside bg-white p-4 rounded-xl shadow space-y-1"></ul>
+      </section>
 
-    <!-- Nilai -->
-    <section id="nilai" class="mb-8">
-      <h2 class="text-xl font-bold mb-3">📊 Nilai</h2>
-      <table class="w-full bg-white rounded shadow overflow-hidden">
-        <thead class="bg-indigo-500 text-white">
-          <tr>
-            <th class="p-2">Nama</th>
-            <th class="p-2">Tugas</th>
-            <th class="p-2">Kuis</th>
-            <th class="p-2">Rata-rata</th>
-          </tr>
-        </thead>
-        <tbody id="nilai-table"></tbody>
-      </table>
-    </section>
+      <!-- Tugas -->
+      <section id="tugas">
+        <h2 class="text-xl font-bold mb-3">📝 Tugas</h2>
+        <div class="overflow-x-auto bg-white rounded-xl shadow">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-indigo-500 text-white text-sm sm:text-base">
+              <tr>
+                <th class="p-3">Judul</th>
+                <th class="p-3">Deadline</th>
+                <th class="p-3">Status</th>
+                <th class="p-3">Link</th>
+              </tr>
+            </thead>
+            <tbody id="tugas-table" class="divide-y divide-gray-200"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Nilai -->
+      <section id="nilai">
+        <h2 class="text-xl font-bold mb-3">📊 Nilai</h2>
+        <div class="overflow-x-auto bg-white rounded-xl shadow">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-indigo-500 text-white text-sm sm:text-base">
+              <tr>
+                <th class="p-3">Nama</th>
+                <th class="p-3">Tugas</th>
+                <th class="p-3">Kuis</th>
+                <th class="p-3">Rata-rata</th>
+              </tr>
+            </thead>
+            <tbody id="nilai-table" class="divide-y divide-gray-200"></tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
   </main>
 
-  <footer class="bg-indigo-600 text-white text-center p-4">
-    <p>© 2025 Dashboard Prakarya & Informatika</p>
+  <!-- Footer -->
+  <footer class="bg-indigo-600 text-white text-center sm:text-left p-4 mt-8">
+    <div class="max-w-6xl mx-auto">
+      <p>© 2025 Dashboard Prakarya & Informatika</p>
+    </div>
   </footer>
 
+  <!-- Script -->
   <script>
-    const url = "https://script.google.com/macros/s/AKfycbxAFRnPhnq_Q_FzyY7F_wBJJ6g-TuR6Un5eGQpRN7jVom3DmXI9E41jQyWS-ygxSLMo/exec"; // ganti dengan URL Web App Anda
+    const url = "https://script.google.com/macros/s/AKfycbxAFRnPhnq_Q_FzyY7F_wBJJ6g-TuR6Un5eGQpRN7jVom3DmXI9E41jQyWS-ygxSLMo/exec";
 
     fetch(url)
       .then(res => res.json())
@@ -94,18 +110,22 @@
           // Link dengan icon mata
           let linkCell = "";
           if (row[3]) {
-            linkCell = `<a href="${row[3]}" target="_blank" class="text-indigo-600 hover:text-indigo-800">
-                          👁
+            linkCell = `<a href="${row[3]}" target="_blank" class="text-indigo-600 hover:text-indigo-800 flex items-center justify-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                          </svg>
                         </a>`;
           } else {
-            linkCell = `<span class="text-gray-400">-</span>`;
+            linkCell = `<span class="text-gray-400 flex justify-center">-</span>`;
           }
 
           let tr = document.createElement("tr");
-          tr.innerHTML = `<td class="p-2">${row[0]}</td>
-                          <td class="p-2">${deadline}</td>
-                          <td class="p-2 ${statusClass}">${row[2]}</td>
-                          <td class="p-2 text-center">${linkCell}</td>`;
+          tr.classList.add("hover:bg-gray-50");
+          tr.innerHTML = `<td class="p-3">${row[0]}</td>
+                          <td class="p-3">${deadline}</td>
+                          <td class="p-3 ${statusClass}">${row[2]}</td>
+                          <td class="p-3 text-center">${linkCell}</td>`;
           tugasTable.appendChild(tr);
         });
 
@@ -113,10 +133,11 @@
         const nilaiTable = document.getElementById("nilai-table");
         data.nilai.forEach(row => {
           let tr = document.createElement("tr");
-          tr.innerHTML = `<td class="p-2">${row[0]}</td>
-                          <td class="p-2">${row[1]}</td>
-                          <td class="p-2">${row[2]}</td>
-                          <td class="p-2">${row[3]}</td>`;
+          tr.classList.add("hover:bg-gray-50");
+          tr.innerHTML = `<td class="p-3">${row[0]}</td>
+                          <td class="p-3">${row[1]}</td>
+                          <td class="p-3">${row[2]}</td>
+                          <td class="p-3">${row[3]}</td>`;
           nilaiTable.appendChild(tr);
         });
       })
