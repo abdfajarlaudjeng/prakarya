@@ -22,7 +22,7 @@
       <!-- Materi -->
       <section id="materi">
         <h2 class="text-xl font-bold mb-3">📘 Materi Pelajaran</h2>
-        <ul id="materi-list" class="list-disc list-inside bg-white p-4 rounded-xl shadow space-y-1"></ul>
+        <div id="materi-list" class="space-y-4 bg-white p-4 rounded-xl shadow"></div>
       </section>
 
       <!-- Tugas -->
@@ -78,12 +78,41 @@
     fetch(url)
       .then(res => res.json())
       .then(data => {
-        // Materi
+        // Materi (materi, sub tema, referensi)
         const materiList = document.getElementById("materi-list");
         data.materi.forEach(row => {
-          let li = document.createElement("li");
-          li.textContent = row[0];
-          materiList.appendChild(li);
+          let judul = row[0] || "";
+          let subtema = row[1] || "";
+          let referensi = row[2] || "";
+
+          let referensiEl = "";
+          if (referensi.startsWith("http")) {
+            referensiEl = `<a href="${referensi}" target="_blank" 
+                             class="bg-green-100 text-green-700 hover:bg-green-200 px-3 py-1 mt-1 inline-flex items-center gap-2 rounded-lg">
+                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" 
+                                  viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" 
+                                  class="w-5 h-5">
+                               <path stroke-linecap="round" stroke-linejoin="round" 
+                                     d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 
+                                        7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 
+                                        9.963 7.178.07.207.07.431 0 .639C20.577 
+                                        16.49 16.64 19.5 12 19.5c-4.638 
+                                        0-8.573-3.007-9.963-7.178z"/>
+                               <path stroke-linecap="round" stroke-linejoin="round" 
+                                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                             </svg>
+                             <span>Baca Buku</span>
+                           </a>`;
+          } else if (referensi) {
+            referensiEl = `<p class="text-sm text-gray-600">Referensi: ${referensi}</p>`;
+          }
+
+          let div = document.createElement("div");
+          div.className = "p-3 border rounded-lg hover:bg-gray-50";
+          div.innerHTML = `<h3 class="font-semibold text-indigo-700">${judul}</h3>
+                           <p class="text-gray-700 text-sm">Sub Tema: ${subtema}</p>
+                           ${referensiEl}`;
+          materiList.appendChild(div);
         });
 
         // Tugas
@@ -100,14 +129,12 @@
             } catch (e) {}
           }
 
-          // Status dengan warna otomatis
           let status = row[2] ? row[2].toLowerCase() : "";
           let statusClass = "text-gray-700";
           if (status.includes("selesai")) statusClass = "text-green-600 font-semibold";
           else if (status.includes("proses")) statusClass = "text-yellow-600 font-semibold";
           else if (status.includes("belum")) statusClass = "text-red-600 font-semibold";
 
-          // Link dengan icon mata + teks "Kerjakan Tugas"
           let linkCell = "";
           if (row[3]) {
             linkCell = `<a href="${row[3]}" target="_blank" 
@@ -116,10 +143,11 @@
                                viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" 
                                class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" 
-                                  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 
-                                     7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 
-                                     7.178.07.207.07.431 0 .639C20.577 16.49 
-                                     16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
+                                  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 
+                                     7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 
+                                     9.963 7.178.07.207.07.431 0 .639C20.577 
+                                     16.49 16.64 19.5 12 19.5c-4.638 
+                                     0-8.573-3.007-9.963-7.178z"/>
                             <path stroke-linecap="round" stroke-linejoin="round" 
                                   d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                           </svg>
