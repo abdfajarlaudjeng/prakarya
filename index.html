@@ -28,6 +28,7 @@
             <th class="p-2">Judul</th>
             <th class="p-2">Deadline</th>
             <th class="p-2">Status</th>
+            <th class="p-2">Link Pembelajaran</th>
           </tr>
         </thead>
         <tbody id="tugas-table"></tbody>
@@ -90,10 +91,21 @@
           else if (status.includes("proses")) statusClass = "text-yellow-600 font-semibold";
           else if (status.includes("belum")) statusClass = "text-red-600 font-semibold";
 
+          // Link dengan icon mata
+          let linkCell = "";
+          if (row[3]) {
+            linkCell = `<a href="${row[3]}" target="_blank" class="text-indigo-600 hover:text-indigo-800">
+                          👁
+                        </a>`;
+          } else {
+            linkCell = `<span class="text-gray-400">-</span>`;
+          }
+
           let tr = document.createElement("tr");
           tr.innerHTML = `<td class="p-2">${row[0]}</td>
                           <td class="p-2">${deadline}</td>
-                          <td class="p-2 ${statusClass}">${row[2]}</td>`;
+                          <td class="p-2 ${statusClass}">${row[2]}</td>
+                          <td class="p-2 text-center">${linkCell}</td>`;
           tugasTable.appendChild(tr);
         });
 
