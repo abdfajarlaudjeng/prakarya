@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Prakarya: Budidaya Sayuran & LKPD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Style tambahan untuk cetak (print) */
+        @media print {
+            body {
+                font-size: 12pt;
+            }
+            .no-print {
+                display: none; /* Sembunyikan elemen yang tidak perlu dicetak */
+            }
+            .page-break {
+                page-break-before: always; /* Paksa halaman baru untuk LKPD */
+            }
+            .lkpd-input, .lkpd-textarea, .lkpd-radio {
+                border: 1px solid #000 !important;
+                background-color: #f0f0f0 !important;
+            }
+            img {
+                max-width: 250px !important; /* Kecilkan gambar saat dicetak */
+            }
+            /* Aturan cetak untuk kop surat */
+            .kop-surat img {
+                max-width: 96px !important; /* Jaga ukuran logo tetap konsisten */
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased">
+
+    <div class="max-w-4xl mx-auto p-4 md:p-8">
+
+        <article class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+            
+            <h1 class="text-3xl md:text-4xl font-bold text-center text-emerald-800 mb-6">
+                🥬 Mengenal Budidaya Tanaman Sayuran
+            </h1>
+
+            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                Selamat datang di Semester 2! Aspek Prakarya yang akan kita pelajari adalah **Budidaya**. Budidaya adalah kegiatan memelihara sumber daya hayati (seperti tanaman atau hewan) untuk diambil manfaatnya. Kita akan fokus pada **Budidaya Tanaman Sayuran**.
+            </p>
+
+            <hr class="my-6">
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-emerald-700 mb-3">1. Jenis Tanaman Sayuran</h2>
+                <p class="mb-4">Sayuran bisa dikelompokkan berdasarkan bagian yang kita panen (makan):</p>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="p-4 bg-emerald-50 rounded-lg border">
+                        <img src="https://placehold.co/200x150/34d399/ffffff?text=Bayam" alt="Sayuran Daun" class="w-full rounded-lg shadow-md mb-3">
+                        <h3 class="font-semibold text-lg">Sayuran Daun</h3>
+                        <p>Bagian daunnya yang kita makan. Contoh: **Kangkung, Bayam, Sawi**.</p>
+                    </div>
+                    <div class="p-4 bg-emerald-50 rounded-lg border">
+                        <img src="https://placehold.co/200x150/34d399/ffffff?text=Tomat" alt="Sayuran Buah" class="w-full rounded-lg shadow-md mb-3">
+                        <h3 class="font-semibold text-lg">Sayuran Buah</h3>
+                        <p>Tanamannya berbunga dan menghasilkan buah yang kita makan. Contoh: **Tomat, Cabai, Terong**.</p>
+                    </div>
+                    <div class="p-4 bg-emerald-50 rounded-lg border">
+                        <img src="https://placehold.co/200x150/34d399/ffffff?text=Wortel" alt="Sayuran Umbi" class="w-full rounded-lg shadow-md mb-3">
+                        <h3 class="font-semibold text-lg">Sayuran Umbi</h3>
+                        <p>Bagian umbi (akar yang membesar) di dalam tanah yang kita makan. Contoh: **Wortel, Kentang, Bawang Merah**.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-emerald-700 mb-4 border-b pb-2">2. Sarana Produksi (Alat & Bahan)</h2>
+                <p class="text-md text-gray-600 mb-6">Untuk mulai menanam, kita butuh alat dan bahan:</p>
+                
+                <div class="md:flex gap-6 mb-6 p-4 bg-gray-50 rounded-lg">
+                    <div class="md:w-1/2">
+                        <h3 class="text-xl font-semibold text-gray-900">Bahan Budidaya</h3>
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                            <li><strong>Benih/Bibit:</strong> Biji tanaman yang akan ditanam.</li>
+                            <li><strong>Media Tanam:</strong> Tempat tumbuhnya tanaman, seperti campuran Tanah, Pupuk Kompos, dan Sekam Padi.</li>
+                            <li><strong>Pupuk:</strong> Nutrisi tambahan untuk tanaman (Kompos atau NPK).</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2">
+                        <h3 class="text-xl font-semibold text-gray-900">Alat Budidaya</h3>
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                            <li><strong>Wadah:</strong> Polybag, Pot, atau bisa juga botol bekas.</li>
+                            <li><strong>Sekop Kecil:</strong> Untuk mengaduk media tanam.</li>
+                            <li><strong>Gembor:</strong> Alat untuk menyiram tanaman.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold text-emerald-700 mb-4 border-b pb-2">3. Tahapan Budidaya</h2>
+                <ol class="list-decimal list-inside space-y-2">
+                    <li><strong>Persiapan Media Tanam:</strong> Mencampur tanah, kompos, dan sekam (jika ada) lalu dimasukkan ke polybag.</li>
+                    <li><strong>Penanaman:</strong> Melubangi media tanam dan memasukkan benih/bibit.</li>
+                    <li><strong>Pemeliharaan:</strong> Ini adalah bagian terpenting!
+                        <ul class="list-disc list-inside ml-6 mt-1">
+                            <li><strong>Penyiraman:</strong> Dilakukan rutin (pagi/sore) agar tanah tetap lembab.</li>
+                            <li><strong>Pemupukan:</strong> Memberi pupuk susulan setelah beberapa minggu.</li>
+                            <li><strong>Penyiangan:</strong> Mencabut gulma (rumput liar) yang mengganggu tanaman utama.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Panen:</strong> Mengambil hasil tanaman (daun, buah, atau umbi) saat sudah siap.</li>
+                </ol>
+            </section>
+        </article>
+
+        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg mt-10 page-break">
+            
+            <div class="kop-surat flex items-center gap-4 mb-6 border-b-4 border-gray-900 pb-4">
+                <img src="smpn10.jpg" alt="Logo Sekolah" class="w-24 h-24"> 
+                <div class="text-center w-full">
+                    <p class="text-lg font-semibold text-gray-700">PEMERINTAH KABUPATEN DONGGALA</p> 
+                    <p class="text-lg font-semibold text-gray-700">DINAS PENDIDIKAN DAN KEBUDAYAAN</p>
+                    <p class="text-2xl font-bold text-emerald-800 mt-1">SMPN 10 BANAWA SELATAN</p>
+                    <p class="text-sm text-gray-600">Alamat: Jln.PNPM Dusun Bambami Desa Malino Kec.Banawa Selatan</p>
+                </div>
+            </div>
+            
+            <h1 class="text-3xl font-bold text-center text-emerald-800 mb-8">
+                📝 LEMBAR KERJA PESERTA DIDIK (LKPD)
+            </h1>
+            <h2 class="text-xl font-semibold text-center text-gray-700 mb-8 -mt-6">Budidaya Tanaman Sayuran</h2>
+
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 mb-10 border-b pb-8">
+                <div>
+                    <label for="nama" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
+                    <input type="text" id="nama" class="lkpd-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500">
+                </div>
+                <div>
+                    <label for="kelas" class="block text-sm font-medium text-gray-700">Kelas</label>
+                    <input type="text" id="kelas" class="lkpd-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500">
+                </div>
+            </form>
+
+            <div class="mb-10">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Bagian 1: Kategori Sayuran</h3>
+                <p class="text-gray-600 mb-4">Tuliskan bagian tanaman yang dimanfaatkan (Daun, Buah, atau Umbi) dari sayuran berikut!</p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <label class="w-24 font-medium">1. Kangkung:</label>
+                        <input type="text" placeholder="Daun / Buah / Umbi?" class="lkpd-input w-48 text-center border-gray-300 rounded">
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <label class="w-24 font-medium">2. Tomat:</label>
+                        <input type="text" placeholder="Daun / Buah / Umbi?" class="lkpd-input w-48 text-center border-gray-300 rounded">
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <label class="w-24 font-medium">3. Wortel:</label>
+                        <input type="text" placeholder="Daun / Buah / Umbi?" class="lkpd-input w-48 text-center border-gray-300 rounded">
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <label class="w-24 font-medium">4. Cabai:</label>
+                        <input type="text" placeholder="Daun / Buah / Umbi?" class="lkpd-input w-48 text-center border-gray-300 rounded">
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Bagian 2: Analisis Tahapan Budidaya</h3>
+                <p class="text-gray-600 mb-6">Jawablah pertanyaan di bawah ini!</p>
+                
+                <div class="p-4 border rounded-lg bg-gray-50 space-y-4">
+                    <div>
+                        <label for="analisis_1" class="block text-sm font-medium text-gray-700">1. Apa nama kegiatan memelihara tanaman yang bertujuan untuk mencabut rumput liar?</p>
+                        <input type="text" id="analisis_1" class="lkpd-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500" placeholder="Penyiraman / Pemupukan / Penyiangan?">
+                    </div>
+                    <div>
+                        <label for="analisis_2" class="block text-sm font-medium text-gray-700">2. Mengapa kegiatan **penyiraman** sangat penting bagi tanaman?</p>
+                        <textarea id="analisis_2" rows="3" class="lkpd-textarea mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500" placeholder="Karena tanaman membutuhkan..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-10 no-print">
+                <button onclick="window.print()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                    🖨️ Cetak / Simpan sebagai PDF
+                </button>
+            </div>
+
+        </section>
+
+    </div> 
+</body>
+</html>
